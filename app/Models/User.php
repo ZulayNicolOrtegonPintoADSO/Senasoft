@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
+    protected $fillable = [ //Que datos de la tabla se pueden llamar en modo masivo
         'name',
         'email',
         'password',
@@ -43,8 +43,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    //RELACIONES CON OTRAS TABLAS
+
+
     // UN USUARIO TIENE UN PERFIL 
-    public function profiles() {
+    public function profile() {
         // hasOne, que me retorne uno
         return $this->hasOne(Profile::class);
     }

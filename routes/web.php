@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+/*RUTA QUE ME PERMITE TRABAJAR POR EL MÉTODO GET, ESTE LO UTILIZO PARA RECUPERAR INFORMACIÓN*/ 
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile');
 
+/*RUTA QUE ME PERMITE TRABAJAR POR EL MÉTODO POST, ESTE LO UTILIZO PARA CREAR EL PERFIL*/ 
+Route::post('/profile', [App\Http\Controllers\Createprofile::class, 'saveDates'])->name('createProfile');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
