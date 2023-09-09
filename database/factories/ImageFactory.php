@@ -16,12 +16,13 @@ class ImageFactory extends Factory
      */
     public function definition(): array
     {
+        $faker = \Faker\Factory::create();
+        $faker->addProvider(new \Bluemmb\Faker\PicsumPhotosProvider($faker));
+
         return [
-            'name'=> fake()->name(),
-            'path'=> fake()->path(),
-            'product_id' => fake()->product_id(),
+            'name'=> $this->faker->sentence(3),
+            'path'=> $this->faker->imageUrl(500,500, false),
         ];
     }
-
     
 }
